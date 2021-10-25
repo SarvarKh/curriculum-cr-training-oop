@@ -1,6 +1,6 @@
-attr_accessor :students
-
 class Classroom
+    attr_accessor :students
+    
     def initialize(label)
         @label = label
         @students = []
