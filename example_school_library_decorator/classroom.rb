@@ -14,4 +14,10 @@ class Classroom
     def label=(label)
         @label = label
     end
+
+    private
+    def add_students(student)
+        @students << student
+        student.classroom = self
+    end
 end
