@@ -1,4 +1,4 @@
-attr_accessor :date
+attr_accessor :date, :book
 
 class Rental
     def initialize(date)
