@@ -7,4 +7,8 @@ class Classroom
     def label
         @label
     end
+
+    def label=(label)
+        @label = label
+    end
 end
