@@ -1,5 +1,7 @@
 class Book
-  @@list = []
+  # rubocop:disable Style/ClassVars
+  @@book_list = []
+  # rubocop:enable Style/ClassVars
 
   attr_accessor :title, :author, :rentals
 
@@ -7,11 +9,11 @@ class Book
     @title = title
     @author = author
     @rentals = []
-    @@list << self
+    @@book_list << self
   end
 
   def self.list
-    @@list.map do |book| 
+    @@book_list.map do |book|
       "Title: #{book.title}, Author: #{book.author}"
     end
   end
@@ -21,6 +23,6 @@ class Book
   end
 
   def self.find(index = 0)
-    @@list[index]
+    @@book_list[index]
   end
 end

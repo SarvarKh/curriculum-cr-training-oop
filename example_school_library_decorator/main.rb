@@ -1,9 +1,10 @@
-require './person.rb'
-require './student.rb'
-require './teacher.rb'
-require './rental.rb'
-require './book.rb'
+require './person'
+require './student'
+require './teacher'
+require './rental'
+require './book'
 
+# rubocop:disable Metrics/BlockLength
 loop do
   puts 'Welcome to School Library App!'
 
@@ -24,7 +25,7 @@ loop do
   when 2
     puts Person.list
   when 3
-    print "Do you want to create a student (1) or a teacher (2)? [Input the Number]: "
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the Number]: '
     gets person_type = gets.chomp.to_i
 
     print 'Age: '
@@ -69,13 +70,15 @@ loop do
 
     Rental.new(date, book, person)
   when 6
+    print 'ID of person: '
+    id = gets.chomp.to_i
 
-
-    puts 'a'
+    puts 'Rentals:'
+    puts Person.list_rentals(id)
   else
     exit!
   end
 
   puts ''
-
 end
+# rubocop:enable Metrics/BlockLength

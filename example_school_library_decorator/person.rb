@@ -1,19 +1,21 @@
 require './corrector'
 
 class Person
-  @@list = []
-  
+  # rubocop:disable Style/ClassVars
+  @@person_list = []
+  # rubocop:enable Style/ClassVars
+
   attr_accessor :name, :age, :rentals
   attr_reader :id, :parent_permission
 
-  def initialize(age, name = 'Unknown', parent_permission = true)
+  def initialize(age, name = 'Unknown', parent_permission = 'y')
     @id = Random.rand(1..1000)
     @corrector = Corrector.new
     @age = age
     @name = name
     @parent_permission = parent_permission
     @rentals = []
-    @@list << self
+    @@person_list << self
   end
 
   def can_use_services?
@@ -25,7 +27,7 @@ class Person
   end
 
   def self.list
-    @@list.map do |person| 
+    @@person_list.map do |person|
       "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
@@ -35,7 +37,11 @@ class Person
   end
 
   def self.find(index = 0)
-    @@list[index]
+    @@person_list[index]
+  end
+
+  def self.list_rentals(id)
+    @@person_list.select { |person| person.id == id }
   end
 
   private
