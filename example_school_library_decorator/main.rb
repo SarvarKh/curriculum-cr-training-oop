@@ -1,3 +1,4 @@
+require './person.rb'
 require './student.rb'
 require './teacher.rb'
 require './rental.rb'
@@ -19,13 +20,9 @@ loop do
 
   case option
   when 1
-
-
-    puts "Seu número é 1"
+    puts Book.list
   when 2
-
-
-    puts "Seu número está entre 2 e 10"
+    puts Person.list
   when 3
     print "Do you want to create a student (1) or a teacher (2)? [Input the Number]: "
     gets person_type = gets.chomp.to_i
@@ -54,9 +51,7 @@ loop do
 
     Book.new(title, author)
   when 5
-
-
-    puts 'a'
+    
   when 6
 
 
@@ -64,5 +59,7 @@ loop do
   else
     exit!
   end
+
+  puts ''
 
 end

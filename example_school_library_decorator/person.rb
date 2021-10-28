@@ -1,6 +1,8 @@
 require './corrector'
 
 class Person
+  @@list = []
+  
   attr_accessor :name, :age, :rentals
   attr_reader :id, :parent_permission
 
@@ -11,6 +13,7 @@ class Person
     @name = name
     @parent_permission = parent_permission
     @rentals = []
+    @@list << self
   end
 
   def can_use_services?
@@ -19,6 +22,12 @@ class Person
 
   def validate_name
     @name = @corrector.correct_name(@name)
+  end
+
+  def self.list
+    @@list.map do |person| 
+      "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
   end
 
   private
