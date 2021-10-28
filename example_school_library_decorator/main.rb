@@ -39,20 +39,20 @@ loop do
     if person_type == 1
       print 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      student = Student.new(age, name, parent_permission)
-
-      puts student.name
-      puts student.age
-      puts student.parent_permission
+      Student.new(age, name, parent_permission)
     else
       print 'Specialization: '
       specialization = gets.chomp
       Teacher.new(age, specialization, name)
     end
   when 4
+    print 'Title: '
+    title = gets.chomp
 
+    print 'Author: '
+    author = gets.chomp
 
-    puts "é uma String"
+    Book.new(title, author)
   when 5
 
 
