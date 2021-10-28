@@ -15,4 +15,12 @@ class Book
       "Title: #{book.title}, Author: #{book.author}"
     end
   end
+
+  def self.indexed_list
+    list.map.with_index { |book, i| "#{i}) #{book}" }
+  end
+
+  def self.find(index = 0)
+    @@list[index]
+  end
 end

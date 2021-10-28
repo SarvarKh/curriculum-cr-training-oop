@@ -51,7 +51,23 @@ loop do
 
     Book.new(title, author)
   when 5
-    
+    puts 'Select a Book from the following list by number'
+    puts Book.indexed_list
+    book_array_id = gets.chomp.to_i
+
+    puts ''
+    puts 'Select a Person from the following list by number (not ID)'
+    puts Person.indexed_list
+    person_array_id = gets.chomp.to_i
+
+    puts ''
+    print 'Date: '
+    date = gets.chomp
+
+    book = Book.find(book_array_id)
+    person = Person.find(person_array_id)
+
+    Rental.new(date, book, person)
   when 6
 
 

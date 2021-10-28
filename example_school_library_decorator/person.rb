@@ -30,6 +30,14 @@ class Person
     end
   end
 
+  def self.indexed_list
+    list.map.with_index { |person, i| "#{i}) #{person}" }
+  end
+
+  def self.find(index = 0)
+    @@list[index]
+  end
+
   private
 
   def of_age?
