@@ -41,7 +41,11 @@ class Person
   end
 
   def self.list_rentals(id)
-    @@person_list.select { |person| person.id == id }
+    selected_person = @@person_list.select { |person| person.id == id }.first
+
+    selected_person.rentals.map do |rental|
+      "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+    end
   end
 
   private
