@@ -1,12 +1,6 @@
-require './person.rb'
-
+require './person'
 class Student < Person
-  def initialize(age, classroom, name = "Unknown", parent_permission = true)
-    super(age, name, parent_permission)
-    @classroom = classroom
-  end
-
-  def play_hooky
-    "¯\(ツ)/¯"
+  def classroom=(student_classroom)
+    student_classroom.students.push(self) unless student_classroom.students.include?(self)
   end
 end
