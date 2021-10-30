@@ -71,8 +71,11 @@ class Logic
       print 'ID of person: '
       id = gets.chomp.to_i
 
-      puts 'Rentals:'
-      puts Person.list_rentals(id)
+      if id.zero?
+        (puts "You entered invalid ID.\nPlease check the ID of a person via option #2 and try again.")
+      else
+        (puts "Rentals:\n\n #{Person.list_rentals(id)}")
+      end
     else
       exit!
     end
