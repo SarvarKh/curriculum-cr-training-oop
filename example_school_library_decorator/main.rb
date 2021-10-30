@@ -1,6 +1,5 @@
 require './logic'
 
-# rubocop:disable Metrics/BlockLength
 loop do
   puts 'Welcome to School Library App!'
 
@@ -17,4 +16,3 @@ loop do
   logic = Logic.new(option)
   logic.start
 end
-# rubocop:enable Metrics/BlockLength
